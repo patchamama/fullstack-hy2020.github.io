@@ -708,7 +708,7 @@ If we were now to return all of the diary entries from the *getNonSensitiveEntri
 Because TypeScript doesn't modify the actual data but only its type, we need to exclude the fields ourselves:
 
 ```js
-import diaries from '../../data/entries.ts'
+import diaries from '../../data/entries';
 
 import { NonSensitiveDiaryEntry, DiaryEntry } from '../types'
 
@@ -1058,7 +1058,7 @@ export default toNewDiaryEntry;
 
 The function should parse each field and make sure that the return value is exactly of type *NewDiaryEntry*. This means we should check each field separately.
 
-Once again, we have a type issue: what is the  type of the parameter *object*? Since the *object* **is** the body of a request, Express has typed it as *any*. Since the idea of this function is to map fields of unknown type to fields of the correct type and check whether they are defined as expected, this might be the rare case in which we *want to allow the **any** type*.
+Once again, we have a type issue: what is the  type of the parameter *object*? Since the *object* **is** the body of a request, Express has typed it as *any*. Since the idea of this function is to map fields of unknown type to fields of the correct type and check whether they are defined as expected, this might be the rare case in which we _want to allow the **any** type_.
 
 However, if we type the object as *any*, ESlint complains about that:
 
@@ -1171,7 +1171,7 @@ The use of a type guard that returns a type predicate is one way to do [type nar
 >}
 >```
 >
->*Most likely, the simpler form is good enough for all practical purposes. However, if we want to be sure, both conditions are needed. There are two different ways to create string in JavaScript, one as a primitive and the other as an object, which both work a bit differently when compared to the **typeof** and **instanceof** operators:*
+>_Most likely, the simpler form is good enough for all practical purposes. However, if we want to be sure, both conditions are needed. There are two different ways to create string in JavaScript, one as a primitive and the other as an object, which both work a bit differently when compared to the **typeof** and **instanceof** operators:_
 >
 >```js
 >const a = "I'm a string primitive";
