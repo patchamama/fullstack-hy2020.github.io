@@ -49,7 +49,7 @@ y configurando *scripts* dentro de package.json:
 }
 ```
 
-Ahora, dentro de este directorio, puedes usar *ts-node* ejecutando * npm run ts-node*. Ten en cuenta que si estás utilizando ts-node a través de package.json, todos los argumentos de la línea de comandos para el script deben tener el prefijo  *--*. Entonces, si deseas ejecutar file.ts con *ts-node* y opciones *-s* y *--someoption*, el comando completo es: -->
+Ahora, dentro de este directorio, puedes usar *ts-node* ejecutando *npm run ts-node*. Ten en cuenta que si estás utilizando ts-node a través de package.json, todos los argumentos de la línea de comandos para el script deben tener el prefijo  *--*. Entonces, si deseas ejecutar file.ts con *ts-node* y opciones *-s* y *--someoption*, el comando completo es:
 
 ```shell
 npm run ts-node file.ts -- -s --someoption
@@ -248,7 +248,7 @@ try {
 
 ### Estrechamiento de Tipos
 
-El valor por defecto del parámetro *error* en el bloque catch es *unknown*. El tipo [unknown](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-0.html#new-unknown-top-type) es una especie de tipo superior que fue introducido en la version 3 de TypeScript para ser la contraparte segura de *any*. Todo es asignable a *unknown*, pero *unknown* no es asignable a nada más que a si mismo y a *any* sin utilizar una aserción de tipo o un estrechamiento basado en el control de flujos. Asimismo, no se permiten operaciones en un *unknown* sin primero utilizar una aserción o un estrechamiento a un tipo especifico.
+El valor por defecto del parámetro *error* en el bloque catch es *unknown*. El tipo [unknown](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-0.html#new-unknown-top-type) es una especie de tipo superior que fue introducido en la versión 3 de TypeScript para ser la contraparte segura de *any*. Todo es asignable a *unknown*, pero *unknown* no es asignable a nada más que a si mismo y a *any* sin utilizar una aserción de tipo o un estrechamiento basado en el control de flujos. Asimismo, no se permiten operaciones en un *unknown* sin primero utilizar una aserción o un estrechamiento a un tipo específico.
 
 Ambas posibles causas de excepción (operador incorrecto o división por cero) van a generar un objeto de [Error](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Error) con un mensaje de error, que nuestro programa le imprime al usuario.
 
@@ -282,7 +282,7 @@ try {
 
 Aquí el estrechamiento fue hecho con la guardia de tipo [instanceof](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#instanceof-narrowing), que es tan solo una de las muchas formas en las que se puede estrechar a un tipo. Vamos a ver muchas otras más adelante en esta parte.
 
-### Accediendo a argumentos de la linea de comandos
+### Accediendo a argumentos de la línea de comandos
 
 Los programas que hemos escrito están bien, pero seguro que sería mejor si pudiéramos usar argumentos de línea de comandos en lugar de tener que cambiar siempre el código para calcular cosas diferentes.
 
@@ -294,7 +294,7 @@ Entonces, ¿cual es el problema con las versiones antiguas?
 
 ### @types/{npm_package}
 
-Volvamos a la idea básica de TypeScript. TypeScript espera que todo el código utilizado globalmente sea tipado, como lo hace por tu código cuando tu proyecto tiene una configuración razonable. La biblioteca de TypeScript en sí misma, contiene solo tipados para el código del paquete TypeScript. Es posible escribir tus propias tipificaciones para el código de una libreria, pero eso casi nunca es necesario, ¡ya que la comunidad de TypeScript lo ha hecho por nosotros!
+Volvamos a la idea básica de TypeScript. TypeScript espera que todo el código utilizado globalmente sea tipado, como lo hace por tu código cuando tu proyecto tiene una configuración razonable. La biblioteca de TypeScript en sí misma, contiene solo tipados para el código del paquete TypeScript. Es posible escribir tus propias tipificaciones para el código de una librería, pero eso casi nunca es necesario, ¡ya que la comunidad de TypeScript lo ha hecho por nosotros!
 
 Al igual que con npm, el mundo TypeScript también celebra el código fuente abierto. La comunidad está activa y reacciona continuamente a las actualizaciones y cambios en los paquetes npm de uso común. Casi siempre puedes encontrar las tipificaciones de paquetes npm, por lo que no tienes que crear tipificaciones para todas tus miles de dependencias por ti mismo.
 
@@ -312,7 +312,7 @@ A veces, un paquete npm también puede incluir sus tipificaciones dentro del có
 
 Dado que la variable global *process* está definida por el propio Node, obtenemos sus tipificaciones del paquete *@types/node*.
 
-Desde la version 10.0 *ts-node* ha definido *@types/node* como una [dependencia entre pares](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#peerdependencies). Si la version de npm es al menos 7.0, las dependencias entre pares de un proyecto son automáticamente instaladas por npm. Si tienes una version mas antigua de npm, la dependencia entre pares debe ser instalada explícitamente:
+Desde la versión 10.0 *ts-node* ha definido *@types/node* como una [dependencia entre pares](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#peerdependencies). Si la versión de npm es al menos 7.0, las dependencias entre pares de un proyecto son automáticamente instaladas por npm. Si tienes una versión mas antigua de npm, la dependencia entre pares debe ser instalada explícitamente:
 
 ```shell
 npm install --save-dev @types/node
@@ -548,7 +548,7 @@ Crea un script npm *npm run calculateExercises* para llamar a la función con va
 
 Cambia los ejercicios anteriores para que puedas dar los parámetros de *bmiCalculator* y *exerciseCalculator* como argumentos de línea de comando.
 
-Tu programa podría funcionar, por ejemplo. de la siguiente manera:
+Tu programa podría funcionar, por ejemplo, de la siguiente manera:
 
 ```shell
 $ npm run calculateBmi 180 91
@@ -740,9 +740,9 @@ Esta configuración puede crear problemas si tienes funciones predefinidas en la
 Afortunadamente, este problema ya se ha resuelto a nivel de configuración.
 Una vez más, pasar el cursor sobre el problema nos da una solución. Esta vez podemos hacer clic en el botón quick fix:
 
-![vscode quickfix para agregar guion bajo a la variable](../../images/9/14a.png)
+![vscode quickfix para agregar guión bajo a la variable](../../images/9/14a.png)
 
-Si es absolutamente imposible deshacerse de una variable no utilizada, puede pre-fijarla con un guion bajo para informar al compilador que ha pensado en ello y que no hay nada que pueda hacer.
+Si es absolutamente imposible deshacerse de una variable no utilizada, puede pre-fijarla con un guión bajo para informar al compilador que ha pensado en ello y que no hay nada que pueda hacer.
 
 Cambiemos el nombre de la variable *req* a *_req*. Finalmente estamos listos para iniciar la aplicación. Parece que funciona bien:
 
@@ -835,7 +835,7 @@ No copies el código de la calculadora en el archivo *index.ts*, conviértelo en
 
 <div class="content">
 
-### Los horrrores de *any*
+### Los horrores de *any*
 
 Ahora que hemos completado nuestros primeros endpoints, es posible que observes que apenas hemos usado TypeScript en estos pequeños ejemplos. Al examinar el código un poco más de cerca, podemos ver algunos peligros acechándonos.
 
@@ -906,7 +906,7 @@ Configuraremos ESlint para [no permitir any explicito](https://github.com/typesc
   },
   "plugins": ["@typescript-eslint"],
   "rules": {
-    "@typescript-eslint/no-explicit-any": 2
+    "@typescript-eslint/no-explicit-any": 2 // highlight-line
   }
 }
 ```
@@ -1079,7 +1079,7 @@ app.post('/calculate', (req, res) => {
 
 Utilizar una aserción de tipo (o silenciar una regla de ESlint) siempre es una cosa un poco arriesgada. Deja al compilador de TypeScript fuera de la escena, el compilador simplemente confía en que nosotros como desarrolladores sabemos lo que estamos haciendo. Si el tipo afirmado *no* tiene el valor correcto, el resultado puede ser un error en tiempo de ejecución, entonces debemos tener mucho cuidado cuando validamos los datos si una aserción de tipos es utilizada.
 
-En el próximo capitulo, le echaremos un vistazo al [estrechamiento de tipos](https://www.typescriptlang.org/docs/handbook/2/narrowing.html), que nos proveerá de una forma mucho más segura de darle un tipo más estricto a los datos que provengan de una fuente externa.
+En el próximo capítulo, le echaremos un vistazo al [estrechamiento de tipos](https://www.typescriptlang.org/docs/handbook/2/narrowing.html), que nos proveerá de una forma mucho más segura de darle un tipo más estricto a los datos que provengan de una fuente externa.
 
 </div>
 
