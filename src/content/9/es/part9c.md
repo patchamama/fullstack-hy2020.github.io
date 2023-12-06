@@ -79,7 +79,7 @@ La configuración *target* le dice al compilador qué versión de *ECMAScript* u
 *strict* es en realidad una abreviatura de varias opciones independientes:
 *noImplicitAny, noImplicitThis, alwaysStrict, strictBindCallApply, strictNullChecks, strictFunctionTypes y strictPropertyInitialization*.
 Estas opciones guían nuestro estilo de codificación para usar las funciones de TypeScript de manera más estricta.
-Para nosotros quizás el más importante sea el que ya hemos visto [noImplicitAny](https://www.staging-typescript.org/tsconfig#noImplicitAny). Impide establecer implícitamente el tipo *any*, lo que puede suceder si, por ejemplo, no escribes los tipos de los parámetros de una función.
+Para nosotros quizás el más importante sea el que ya hemos visto [noImplicitAny](https://www.staging-typescript.org/tsconfig#noImplicitAny). Impide establecer implícitamente el tipo *any*, lo que puede suceder sí, por ejemplo, no escribes los tipos de los parámetros de una función.
 Los detalles del resto de las configuraciones se pueden encontrar en la [documentación de tsconfig](https://www.staging-typescript.org/tsconfig#strict).
 El uso de *strict* es sugerido por la documentación oficial.
 
@@ -160,7 +160,7 @@ También creamos un archivo *.eslintrc* con el siguiente contenido:
 ```
 
 Ahora solo necesitamos configurar nuestro entorno de desarrollo y estamos listos para comenzar a escribir un poco de código serio.
-Hay muchas opciones diferentes para esto. Podríamos usar el conocido *nodemon* con *ts-node*. Sin embargo, como vimos anteriormente, *ts-node-dev* hace exactamente lo mismo, asi que lo continuaremos usando.
+Hay muchas opciones diferentes para esto. Podríamos usar el conocido *nodemon* con *ts-node*. Sin embargo, como vimos anteriormente, *ts-node-dev* hace exactamente lo mismo, así que lo continuaremos usando.
 Entonces, instalemos *ts-node-dev*
 
 ```shell
@@ -181,7 +181,7 @@ Finalmente definimos un par de scripts npm más, y voilà, estamos listos para c
 }
 ```
 
-Como puedes ver, hay muchas cosas que hacer antes de que comenzar a codear de verdad. Cuando se trabaja con un proyecto real, los preparativos cuidadosos respaldan tu proceso de desarrollo.Tómate el tiempo necesario para crear una buena configuración para ti y tu equipo, para que, a la larga, todo funcione sin problemas.
+Como puedes ver, hay muchas cosas que hacer antes de que comenzar a codear de verdad. Cuando se trabaja con un proyecto real, los preparativos cuidadosos respaldan tu proceso de desarrollo.Tómate el tiempo necesario para crear una buena configuración para tí y tu equipo, para que, a la larga, todo funcione sin problemas.
 
 ### Que haya código
 
@@ -272,14 +272,14 @@ El [frontend](https://github.com/fullstack-hy2020/patientor) ya ha sido creado p
 
 #### ADVERTENCIA
 
-Bastante a menudo, VS code pierde el registro de lo que realmente esta pasando en el código y muestra advertencias relacionadas al tipo o estilo a pesar de que el código ya ha sido arreglado. Si esto sucede (a mi me ha sucedido bastante seguido), cierra y vuelve a abrir el archivo que te da problemas o simplemente reinicia el editor. También es bueno asegurarse de que todo realmente funciona ejecutando el compilador y ESlint desde la linea de comandos:
+Bastante a menudo, VS code pierde el registro de lo que realmente esta pasando en el código y muestra advertencias relacionadas al tipo o estilo a pesar de que el código ya ha sido arreglado. Si esto sucede (a mi me ha sucedido bastante seguido), cierra y vuelve a abrir el archivo que te da problemas o simplemente reinicia el editor. También es bueno asegurarse de que todo realmente funciona ejecutando el compilador y ESlint desde la línea de comandos:
 
 ```bash
 npm run tsc
 npm run lint
 ```
 
-Cuando lo ejecutamos en la linea de comandos obtienes el "resultado real". Entonces, ¡no confíes demasiado en el editor!
+Cuando lo ejecutamos en la línea de comandos obtienes el "resultado real". Entonces, ¡no confíes demasiado en el editor!
 
 #### 9.8: Patientor backend, paso 1
 
@@ -287,7 +287,7 @@ Inicializa un nuevo proyecto de backend que será utilizado por el frontend. Con
 
 El proyecto debería poder ejecutarse con scripts npm, tanto en modo de desarrollo y como código compilado, en modo de producción.
 
-#### 9.8: Patientor backend, paso 2
+#### 9.9: Patientor backend, paso 2
 
 Haz un fork y clona el proyecto [patientor](https://github.com/fullstack-hy2020/patientor). Inicia el proyecto con la ayuda del archivo README. 
 
@@ -312,8 +312,8 @@ Empecemos por lo básico. Ilari quiere poder realizar un seguimiento de sus expe
 Quiere poder guardar las *entradas del diario* que contienen:
 
 - La fecha de la entrada
-- Condiciones meteorológicas (sunny, windy, cloudy, rainy or stormy)(soleado, ventoso, nublado, lluvioso o tormentoso)
-- Visibilidad (great, good, ok or poor)(muy buena, buena, regular o mala)
+- Condiciones meteorológicas (sunny, windy, cloudy, rainy or stormy) equivalente a (soleado, ventoso, nublado, lluvioso o tormentoso)
+- Visibilidad (great, good, ok or poor) en equivalencia a (muy buena, buena, regular o mala)
 - Texto libre detallando la experiencia
 
 Hemos obtenido algunos datos de muestra, que utilizaremos como base para construir.
@@ -402,7 +402,7 @@ Vamos a crear un directorio *src/services* y coloquemos el archivo *diaryService
 El archivo contiene dos funciones para buscar y guardar entradas del diario:
 
 ```js
-import diaryData from '../../data/diaries.json'
+import diaryData from '../../data/entries.json'
 
 const getEntries = () => {
   return diaryData;
@@ -455,7 +455,7 @@ Actualmente tenemos una aplicación básica de Express con TypeScript que funcio
 
 Creemos un archivo para nuestros tipos, *types.ts*, donde definiremos todos nuestros tipos para este proyecto.
 
-Primero, vamos a tipear los valores de de *Weather* y *Visibility* utilizando un [union type](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types) de las strings permitidas:
+Primero, vamos a tipear los valores de *Weather* y *Visibility* utilizando un [union type](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types) de las strings permitidas:
 
 ```js
 export type Weather = 'sunny' | 'rainy' | 'cloudy' | 'windy' | 'stormy';
@@ -667,7 +667,7 @@ const getNonSensitiveEntries = (): Omit<DiaryEntry, 'comment'>[] => {
 }
 ```
 
-Para mejorar la legibilidad, definitivamente deberiamos definir un [alias de tipo](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-aliases) llamado *NonSensitiveDiaryEntry* en el archivo *types.ts*:
+Para mejorar la legibilidad, definitivamente deberíamos definir un [alias de tipo](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-aliases) llamado *NonSensitiveDiaryEntry* en el archivo *types.ts*:
 
 ```js
 export type NonSensitiveDiaryEntry = Omit<DiaryEntry, 'comment'>;
@@ -708,7 +708,7 @@ Si ahora devolviéramos todas las entradas del diario de la función *getNonSens
 Debido a que TypeScript no modifica los datos reales, sino solo su tipo, debemos excluir los campos nosotros mismos:
 
 ```js
-import diaries from '../../data/entries.ts'
+import diaries from '../../data/entries'
 
 import { NonSensitiveDiaryEntry, DiaryEntry } from '../types'
 
@@ -905,7 +905,7 @@ import {
 } from '../types';
 
 
-const addEntry = (
+const addDiary = (
     date: string, weather: Weather, visibility: Visibility, comment: string
   ): DiaryEntry => {
 
@@ -969,7 +969,7 @@ Aún tenemos una queja en nuestro codigo:
 
 La causa es la regla de ESlint [@typescript-eslint/no-unsafe-assignment](https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unsafe-assignment.md) que nos previene de asignar los campos del body de una solicitud a las variables.
 
-Por el momento, simplemente ignoremos la regla de ESlint en todo el archivo, podemos hacerlo agregando lo siguiente a la primer linea del archivo:
+Por el momento, simplemente ignoremos la regla de ESlint en todo el archivo, podemos hacerlo agregando lo siguiente a la primer línea del archivo:
 
 ``` js
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
@@ -996,7 +996,7 @@ app.listen(PORT, () => {
 
 ### Solicitudes de revisión
 
-Hay muchas cosas que pueden malir sal cuando aceptamos datos de fuentes externas.
+Hay muchas cosas que pueden salir mal cuando aceptamos datos de fuentes externas.
 Las aplicaciones rara vez funcionan completamente por sí solas y, nos vemos obligados a vivir con el hecho de que no se puede confiar plenamente en los datos de fuentes externas a nuestro sistema.
 Cuando recibimos datos de una fuente externa, no hay forma de que ya estén tipados cuando los recibimos. Necesitamos tomar decisiones sobre cómo manejar la incertidumbre que viene con esto.
 
@@ -1036,7 +1036,7 @@ router.post('/', (req, res) => {
 })
 ```
 
-Ahora, también podemos remover la primera linea que ignora la regla de ESlint *no-unsafe-assignment*.
+Ahora, también podemos remover la primera línea que ignora la regla de ESlint *no-unsafe-assignment*.
 
 Dado que ahora estamos escribiendo código seguro y tratando de asegurarnos de obtener exactamente los datos que queremos de las solicitudes, debemos comenzar a procesar y validar cada campo que esperamos recibir.
 
@@ -1058,7 +1058,7 @@ export default toNewDiaryEntry;
 
 La función debe procesar cada campo y asegurarse de que el valor de retorno sea exactamente del tipo *NewDiaryEntry*. Esto significa que debemos verificar cada campo por separado.
 
-Una vez más tenemos un problema de tipo: ¿cuál es el tipo del parámetro *objeto*? Dado que el *objeto* **es** el request body, Express lo ha escrito como *any*. Dado que la idea de esta función es mapear campos de tipo desconocido a campos del tipo correcto y verificar si están definidos como se espera, este podría ser el caso poco común en el que *queremos permitir el tipo **any** *.
+Una vez más tenemos un problema de tipo: ¿cuál es el tipo del parámetro *objeto*? Dado que el *objeto* **es** el request body, Express lo ha escrito como *any*. Dado que la idea de esta función es mapear campos de tipo desconocido a campos del tipo correcto y verificar si están definidos como se espera, este podría ser el caso poco común en el que _queremos permitir el tipo **any**_.
 
 Sin embargo, si escribimos el objeto como *any*, ESlint nos da una queja:
 
@@ -1103,7 +1103,7 @@ Con el uso de *unknown*, tampoco tenemos que preocuparnos por la regla de ESlint
 >};
 >```
 >
-> *Entonces, antes de de que los datos reales y los tipos estén listos para ser usados, simplemente estoy retornando algo que se que tiene el tipo correcto. El código permanece operacional todo el tiempo y mi presión sanguínea vuelve a niveles normales*
+> *Entonces, antes de que los datos reales y los tipos estén listos para ser usados, simplemente estoy retornando algo que se que tiene el tipo correcto. El código permanece operacional todo el tiempo y mi presión sanguínea vuelve a niveles normales*
 
 ### Guardias de tipos
 
@@ -1171,7 +1171,7 @@ El uso de una guardia de tipo que devuelve un predicado de tipo es una forma de 
 >}
 >```
 >
->*Probablemente, la forma más simple es suficientemente buena para todos los casos prácticos. Sin embargo, si queremos estar absolutamente seguros, ambas condiciones son necesarias. Hay dos formas diferentes de crear strings en JavaScript, una como primitivo y otra como objeto, los cuales funcionan un poco diferente cuando son comparadas con los operadores **typeof** y **instanceof**:*
+_Probablemente, la forma más simple es suficientemente buena para todos los casos prácticos. Sin embargo, sí queremos estar absolutamente seguros, ambas condiciones son necesarias. Hay dos formas diferentes de crear strings en JavaScript, una como primitivo y otra como objeto, los cuales funcionan un poco diferente cuando son comparadas con los operadores **typeof** y **instanceof**:_
 >
 >```js
 >const a = "I'm a string primitive";
@@ -1361,7 +1361,7 @@ const toNewDiaryEntry = (object: unknown): NewDiaryEntry => {
 
 Si la guardia no evalúa a true, una excepción es arrojada
 
-El uso del operador *in* ahora garantiza que los campos existen en el objeto. Por eso mismo, la comprobación de existencia en los ya no es necesaria:
+El uso del operador *in* ahora garantiza que los campos existen en el objeto. Por eso mismo, la comprobación de existencia ya no es necesaria:
 
 ```js
 const parseVisibility = (visibility: unknown): Visibility => {
