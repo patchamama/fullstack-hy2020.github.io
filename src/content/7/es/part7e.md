@@ -233,7 +233,7 @@ En la [parte 8](/es/part8), nuestro tema es GraphQL, que proporciona un buen mec
 
 ### Virtual DOM
 
-El concepto de virtual DOM a menudo surge cuando se habla de React. ¿Que es todo esto? Como se mencionó en la [parte 0](/es/part0/fundamentos_de_las_aplicaciones_web#modelo-de-objeto-de-documento-o-dom), los navegadores proporcionan una [API DOM](https://developer.mozilla.org/fi/docs/DOM), mediante la cual el JavaScript que se ejecuta en el navegador puede modificar los elementos que definen la apariencia de la página.
+El concepto de virtual DOM a menudo surge cuando se habla de React. ¿Qué es todo esto? Como se mencionó en la [parte 0](/es/part0/fundamentos_de_las_aplicaciones_web#modelo-de-objeto-de-documento-o-dom), los navegadores proporcionan una [API DOM](https://developer.mozilla.org/fi/docs/DOM), mediante la cual el JavaScript que se ejecuta en el navegador puede modificar los elementos que definen la apariencia de la página.
 
 Cuando un desarrollador de software usa React, rara vez o nunca manipula directamente el DOM. La función que define el componente React devuelve un conjunto de [elementos React](https://reactjs.org/docs/glossary.html#elements). Aunque algunos de los elementos parecen elementos HTML normales
 
@@ -253,12 +253,12 @@ ReactDOM.render(
   document.getElementById('root')
 )
 ```
-Cuando el estado de la aplicación cambia, los componentes definen un <i>nuevo virutal DOM</i>. React tiene la versión anterior del virtual DOM en la memoria y en lugar de renderizar directamente el nuevo ´virtual DOM usando la API DOM, React calcula la forma óptima de actualizar el DOM (eliminar, agregar o modificar elementos en el DOM) de modo que el DOM refleje el nuevo virtual DOM.
+Cuando el estado de la aplicación cambia, los componentes definen un <i>nuevo virtual DOM</i>. React tiene la versión anterior del virtual DOM en la memoria y en lugar de renderizar directamente el nuevo virtual DOM usando la API DOM, React calcula la forma óptima de actualizar el DOM (eliminar, agregar o modificar elementos en el DOM) de modo que el DOM refleje el nuevo virtual DOM.
 
 
 ### El papel de React en las aplicaciones
 
-Es posible que en el material no hayamos puesto suficiente énfasis en el hecho de que React es principalmente una librería para administrar la creación de vistas para una aplicación. Si nos fijamos en el patrón de [modelo vista controlador](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) tradicional, entonces el dominio de React sería <i>Vista</i>. React tiene un área de aplicación más estrecha que, por ejemplo , [Angular](https://angular.io/), que es un framework de Frontend MVC que lo abarca todo. Por lo tanto, React no es un <i>framework</i>, sino <i>library</i>.
+Es posible que en el material no hayamos puesto suficiente énfasis en el hecho de que React es principalmente una librería para administrar la creación de vistas para una aplicación. Si nos fijamos en el patrón de [modelo vista controlador](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) tradicional, entonces el dominio de React sería la <i>Vista</i>. React tiene un área de aplicación más estrecha que, por ejemplo , [Angular](https://angular.io/), que es un framework de Frontend MVC que lo abarca todo. Por lo tanto, React no es un <i>framework</i>, sino una <i>librería</i>.
 
 En aplicaciones pequeñas, los datos manejados por la aplicación se almacenan en el estado de los componentes de React, por lo que en este escenario el estado de los componentes se puede considerar como <i>modelos</i> de una arquitectura MVC.
 
@@ -266,7 +266,7 @@ Sin embargo, la arquitectura MVC no se suele mencionar cuando se habla de aplica
 
 Debido a que tanto React como [Flux](https://facebook.github.io/flux/docs/in-depth-overview) se crearon en Facebook, se podría decir que usar React solo como una librería de UI es el caso de uso previsto. Seguir la arquitectura Flux agrega algunos gastos generales a la aplicación, y si estamos hablando de una pequeña aplicación o prototipo, podría ser una buena idea usar React "incorrectamente", ya que la [ingeniería excesiva](https://en.wikipedia.org/wiki/Overengineering) rara vez produce un resultado óptimo.
 
-El ultimo capítulo de la [parte 6](/es/part6/react_query_use_reducer_y_el_contexto) cubre las nuevas tendencias de gestión de estado en React. Las funciones de hooks de React <i>useReducer</i> y <i>useContext</i> proporcionan una versión liviana de Redux. <i>React Query</i>, por otro lado, es una librería que resuelve muchos de los problemas asociados con el manejo del estado en el servidor, eliminando la necesidad de que una aplicación React almacene los datos recuperados del servidor directamente en el estado del frontend.
+El último capítulo de la [parte 6](/es/part6/react_query_use_reducer_y_el_contexto) cubre las nuevas tendencias de gestión de estado en React. Las funciones de hooks de React <i>useReducer</i> y <i>useContext</i> proporcionan una versión liviana de Redux. <i>React Query</i>, por otro lado, es una librería que resuelve muchos de los problemas asociados con el manejo del estado en el servidor, eliminando la necesidad de que una aplicación React almacene los datos recuperados del servidor directamente en el estado del frontend.
 
 ### Seguridad en aplicaciones React/node
 
@@ -301,7 +301,7 @@ SELECT * FROM Users WHERE name = 'Arto Hell-as'; DROP TABLE Users; --'
 
 
 
-Las inyecciones de SQL se evitan [desinfectando](https://security.stackexchange.com/questions/172297/sanitizing-input-for-parameterized-queries) la entrada, lo que implicaría comprobar que los parámetros de la consulta no contienen ningún carácter prohibido, en este caso comillas simples. Si se encuentran caracteres prohibidos, se reemplazan con alternativas seguras al [escapar](https://en.wikipedia.org/wiki/Escape_character#JavaScript) de ellos.
+Las inyecciones de SQL se evitan [desinfectando](https://security.stackexchange.com/questions/172297/sanitizing-input-for-parameterized-queries) la entrada, lo que implicaría comprobar que los parámetros de la consulta no contienen ningún carácter prohibido, en este caso comillas simples. Si se encuentran caracteres prohibidos, se reemplazan con alternativas seguras al [escapar](https://en.wikipedia.org/wiki/Escape_character#JavaScript) los caracteres.
 
 
 Los ataques de inyección también son posibles en bases de datos NoSQL. Sin embargo, mongoose los previene [desinfectando](https://zanon.io/posts/nosql-injection-in-mongodb) las consultas. Puede encontrar más información sobre el tema, por ejemplo, [aquí](https://web.archive.org/web/20220901024441/https://blog.websecurify.com/2014/08/hacking-nodejs-and-mongodb.html).
