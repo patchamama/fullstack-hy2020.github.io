@@ -7,7 +7,7 @@ lang: es
 
 <div class="content">
 
-En la parte 2 examinamos dos formas diferentes de agregar estilos a nuestra aplicación: el archivo [CSS único](/es/part2/adding_styles_to_react_app) de la vieja escuela y los [estilos en línea](/en/part2/adding_styles_to_react_app#inline-styles). En esta parte veremos algunas otras formas.
+En la parte 2 examinamos dos formas diferentes de agregar estilos a nuestra aplicación: el archivo [CSS único](/es/part2/agregar_estilos_a_la_aplicacion_react) de la vieja escuela y los [estilos en línea](/es/part2/agregar_estilos_a_la_aplicacion_react#estilos-en-linea). En esta parte veremos algunas otras formas. 
 
 ### Librerías de IU listas para usar
 
@@ -17,7 +17,7 @@ Uno de los primeros UI frameworks más populares fue el kit de herramientas [Boo
 
 Muchos UI frameworks proporcionan a los desarrolladores de aplicaciones web temas y "componentes" listos para usar, como botones, menús y tablas. Escribimos los componentes entre comillas, porque en este contexto no estamos hablando de componentes de React. Por lo general, los UI frameworks se utilizan al incluir las hojas de estilo CSS y el código JavaScript del framework en la aplicación.
 
-Hay muchos UI frameworks que tienen versiones compatibles con React, donde los "componentes" del framwork se han transformado en componentes de React. Hay algunas versiones diferentes de React de Bootstrap como [reactstrap](http://reactstrap.github.io/) y [react-bootstrap](https://react-bootstrap.github.io/).
+Hay muchos UI frameworks que tienen versiones compatibles con React, donde los "componentes" del framework se han transformado en componentes de React. Hay algunas versiones diferentes de React de Bootstrap como [reactstrap](http://reactstrap.github.io/) y [react-bootstrap](https://react-bootstrap.github.io/).
 
 A continuación, analizaremos más de cerca dos UI frameworks, Bootstrap y [MaterialUI](https://mui.com/). Usaremos ambos marcos para agregar estilos similares a la aplicación que hicimos en la sección [React-router](/es/part7/react_router) del material del curso.
 
