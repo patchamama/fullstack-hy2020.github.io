@@ -450,7 +450,7 @@ Comencemos a usar Redux Toolkit en nuestra aplicación refactorizando el código
 npm install @reduxjs/toolkit
 ```
 
-A continuación, abra el archivo <i>index.js</i> que actualmente crea la store de Redux. En lugar de la función <em>createStore</em> de Redux, creemos la tienda usando la función [configureStore](https://redux-toolkit.js.org/api/configureStore) de Redux Toolkit:
+A continuación, abra el archivo <i>index.js</i> que actualmente crea la store de Redux. En lugar de la función <em>createStore</em> de Redux, creemos el store usando la función [configureStore](https://redux-toolkit.js.org/api/configureStore) de Redux Toolkit:
 
 ```js
 import React from 'react'
@@ -675,7 +675,7 @@ Lo siguiente se imprime en la consola
 
 ![](../../images/6/40new.png)
 
-La salida es interesante pero no muy útil. Esto trata de la librería Immer mencionada anteriormente utilizada por Redux Toolkit, que ahora se usa internamente para guardar el estado de la Tienda.
+La salida es interesante pero no muy útil. Esto trata de la librería Immer mencionada anteriormente utilizada por Redux Toolkit, que ahora se usa internamente para guardar el estado del store.
 
 El estado se puede convertir a un formato legible por humanos, e.j. convirtiéndolo en una cadena y de nuevo en un objeto JavaScript de la siguiente manera:
 
